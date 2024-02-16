@@ -22,7 +22,7 @@ const compareGuesses = (humanGuess, computerGuess, secretTarget) => {
         let humanValue = humanGuess - secretTarget;
         let computerValue = computerGuess - secretTarget;
 
-        if (humanValue < computerValue) {
+        if (humanValue <= computerValue) {
             outcome = true;
         }
         else {
@@ -35,7 +35,7 @@ const compareGuesses = (humanGuess, computerGuess, secretTarget) => {
         let humanValue = humanGuess - secretTarget;
         let computerValue = secretTarget - computerGuess;
 
-        if (humanValue < computerValue) {
+        if (humanValue <= computerValue) {
             outcome = true;
         }
         else {
@@ -43,11 +43,11 @@ const compareGuesses = (humanGuess, computerGuess, secretTarget) => {
         }
     }
 
-    else if (humanGuess < secretTarget && computerGuess < secretTarget) {
+    else if (humanGuess <= secretTarget && computerGuess < secretTarget) {
         let humanValue = secretTarget - humanGuess;
         let computerValue = secretTarget - computerGuess;
 
-        if (humanValue < computerValue) {
+        if (humanValue <= computerValue) {
             outcome = true;
         }
         else {
@@ -59,7 +59,7 @@ const compareGuesses = (humanGuess, computerGuess, secretTarget) => {
         let humanValue = secretTarget - humanGuess;
         let computerValue = computerGuess - secretTarget;
 
-        if (humanValue < computerValue) {
+        if (humanValue <= computerValue) {
             outcome = true;
         }
         else {
@@ -71,3 +71,18 @@ const compareGuesses = (humanGuess, computerGuess, secretTarget) => {
 
 }
 
+const updateScore = winner => {
+
+    if (winner === 'human') {
+        humanScore++;
+    }
+    else if (winner === 'computer') {
+        computerScore++;
+    }
+
+}
+
+const advanceRound = () => {
+
+    currentRoundNumber++;
+}
